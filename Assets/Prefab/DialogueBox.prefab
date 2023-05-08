@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Text: {fileID: 7648292553648728935}
+  m_SpeakerText: {fileID: 7648292555178941819}
   m_Lines:
   - Prova 1 prova 1 Prova 1 prova 1
   - Prova 2 prova 2 Prova 2 prova 2
@@ -242,7 +243,7 @@ GameObject:
   - component: {fileID: 7648292555178941818}
   - component: {fileID: 7648292555178941819}
   m_Layer: 5
-  m_Name: TalkingText
+  m_Name: SpeakerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
