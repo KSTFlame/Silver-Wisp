@@ -85,6 +85,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        if(m_Lines != null)
         foreach(char c in m_Lines[m_index].ToCharArray())
         {
             m_Text.text += c;
