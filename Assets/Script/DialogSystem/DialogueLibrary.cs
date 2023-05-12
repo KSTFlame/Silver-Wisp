@@ -10,6 +10,11 @@ public class DialogueLibrary : MonoBehaviour
     public static string[] m_Lines = new string[10];
     public static string m_Speaker;
 
+    public void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void Update()
     {
         ActiveDialogue();
@@ -28,7 +33,10 @@ public class DialogueLibrary : MonoBehaviour
                     m_Speaker = "Topolino";
                 m_Lines[1] = "Boia deh peffò";
 
+                for (int i = 2; i < 10; i++)
+                    m_Lines[i] = null;
                 break;
+
             case 1:
                 if (m_SpeakerIndex == 0)
                     m_Speaker = "Giorgio";
@@ -36,10 +44,18 @@ public class DialogueLibrary : MonoBehaviour
                 if (m_SpeakerIndex == 1)
                     m_Speaker = "Paperino";
                 m_Lines[1] = "Babba bia";
+                m_Lines[2] = "Sto male";
+
+                for (int i = 3; i < 10; i++)
+                    m_Lines[i] = null;
                 break;
+
             default:
                 m_Lines[0] = "Ciao a tutti";
                 m_Lines[1] = "Boia deh peffò";
+
+                for (int i = 2; i < 10; i++)
+                    m_Lines[i] = null;
                 break;
         }
     }

@@ -11,14 +11,7 @@ public class Dialogue : MonoBehaviour
     public string[] m_Lines;
     public float m_TextSpeed;
 
-
     private int m_index;
-
-    public void Start()
-    {
-        for (int i = 0; i < m_Lines.Length; i++)
-            m_Lines[i] = null;
-    }
 
     // Update is called once per frame
     void Update()
@@ -85,7 +78,6 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        if(m_Lines != null)
         foreach(char c in m_Lines[m_index].ToCharArray())
         {
             m_Text.text += c;
