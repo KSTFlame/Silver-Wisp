@@ -387,7 +387,11 @@ MonoBehaviour:
   m_PrefabDownArrow: {fileID: 4853248926477994177, guid: fba7fd0188b604a488ecfa19b5ef9be6, type: 3}
   m_PrefabLeftArrow: {fileID: 5028765247345009173, guid: a7d93867e8f2dd746a3af7db47bf5060, type: 3}
   m_PrefabRightArrow: {fileID: 3977606902624828417, guid: 74289645af6562f408de8f8b282b08d2, type: 3}
+  m_arrowList: []
+  m_CorrectSequence: 0
   m_nNotes: 5
+  m_nRound: 0
+  m_nRoundText: {fileID: 1907297968}
 --- !u!4 &877721946
 Transform:
   m_ObjectHideFlags: 0

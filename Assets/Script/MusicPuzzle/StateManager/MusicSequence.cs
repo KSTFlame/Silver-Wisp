@@ -13,19 +13,12 @@ public class MusicSequence : State
     {
         base.OnEnter();
         Debug.Log("Enter MusicSequnce");
-        stateManager.StartCoroutine(stateManager.MusicalNoteSpawn());
-    }
 
-    public override void OnUpdate()
-    {
-        base.OnUpdate();
-        Debug.Log("Update MusicSequnce");
+        stateManager.m_nRoundText.text = "Round " + stateManager.m_nRound + " / 5";
 
-    }
-
-    public override void OnExit()
-    {
-        base.OnExit();
-        Debug.Log("Exit MusicSequence");
+        if(stateManager.m_CorrectSequence)    
+            stateManager.StartCoroutine(stateManager.MusicalNoteSpawn());
+        else
+            stateManager.StartCoroutine(stateManager.MusicalNoteRepeat());
     }
 }

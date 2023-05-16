@@ -14,6 +14,9 @@ public class MusicGameStart : State
         base.OnEnter();
         Debug.Log("Enter MusicGameStart");
         Debug.Log("Messaggio a schermo della sfida");
+        stateManager.m_arrowList = new List<string>();
+        stateManager.m_CorrectSequence = true;
+        stateManager.m_nRound = 0;
         //DialogueLibrary.m_DialogueIndex = 1;
         //StateManager.m_StaticDialogueBox.SetActive(true);
     }

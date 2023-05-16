@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class StateManager : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class StateManager : MonoBehaviour
     public GameObject m_PrefabDownArrow;
     public GameObject m_PrefabLeftArrow;
     public GameObject m_PrefabRightArrow;
-    public int m_nNotes;
     private bool m_isSpawning;
-    private List<string> m_arrowList;
+    public List<string> m_arrowList;
+    public bool m_CorrectSequence;
+    public int m_nNotes;
+    public int m_nRound;
+    public TextMeshProUGUI m_nRoundText;
 
     public void SetupStates()
     {
@@ -67,7 +71,7 @@ public class StateManager : MonoBehaviour
 
     public IEnumerator MusicalNoteSpawn()
     {
-        for(int i = 0; i < m_nNotes; i++)
+        for(int i = 0; i < m_nNotes+m_nRound; i++)
         {
             int rand = UnityEngine.Random.Range(0,4);
             m_isSpawning = true;
@@ -75,26 +79,44 @@ public class StateManager : MonoBehaviour
             {
                 case 0:
                     Instantiate(m_PrefabUpArrow, m_SpawnPoint.transform.position, Quaternion.identity);
-                    //m_arrowList.Add("upArrow");
+                    m_arrowList.Add("upArrow");
                     break;
                 case 1:
                     Instantiate(m_PrefabRightArrow, m_SpawnPoint.transform.position, Quaternion.identity);
-                    //m_arrowList.Add("rightArrow");
+                    m_arrowList.Add("rightArrow");
                     break;
                 case 2:
                     Instantiate(m_PrefabLeftArrow, m_SpawnPoint.transform.position, Quaternion.identity);
-                    //m_arrowList.Add("leftArrow");
+                    m_arrowList.Add("leftArrow");
                     break;
                 case 3:
                     Instantiate(m_PrefabDownArrow, m_SpawnPoint.transform.position, Quaternion.identity);
-                    //m_arrowList.Add("downArrow");
+                    m_arrowList.Add("downArrow");
                     break;
                 default:
                     Instantiate(m_PrefabUpArrow, m_SpawnPoint.transform.position, Quaternion.identity);
-                    //m_arrowList.Add("upArrow");
+                    m_arrowList.Add("upArrow");
                     break;
             }
             Debug.Log("Rand Value: " + rand);
+            yield return new WaitForSeconds(0.5f);
+            m_isSpawning = false;
+        }
+    }
+
+    public IEnumerator MusicalNoteRepeat()
+    {
+        for (int i = 0; i < m_nNotes + m_nRound; i++)
+        {
+            m_isSpawning = true;
+            if(m_arrowList[i] == "downArrow")
+                Instantiate(m_PrefabDownArrow, m_SpawnPoint.transform.position, Quaternion.identity);
+            else if (m_arrowList[i] == "upArrow")
+                Instantiate(m_PrefabUpArrow, m_SpawnPoint.transform.position, Quaternion.identity);
+            else if(m_arrowList[i] == "leftArrow")
+                Instantiate(m_PrefabLeftArrow, m_SpawnPoint.transform.position, Quaternion.identity);
+            else if(m_arrowList[i] == "rightArrow")
+                Instantiate(m_PrefabRightArrow, m_SpawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
             m_isSpawning = false;
         }

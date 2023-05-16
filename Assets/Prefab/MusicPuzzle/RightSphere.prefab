@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153f2ceb9d305ac4aaa68d396ed8b7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 105
+  m_Speed: 5
   m_DeathPoint: {fileID: 6921059843977944784, guid: afecb370319670345a6cd87c3f9d3393, type: 3}
   m_Frequency: 7
   m_Magnitude: 0.5
