@@ -9,11 +9,6 @@ public class StateManager : MonoBehaviour
     public State currentState;
     public Dictionary<string, State> listOfStates = new Dictionary<string, State>();
 
-    //MusicGameStart State
-    //public GameObject m_DialogueBox;
-    //public static GameObject m_StaticDialogueBox;
-
-    //MusicSequence State
     public GameObject m_SpawnPoint;
     public GameObject m_PrefabUpArrow;
     public GameObject m_PrefabDownArrow;
@@ -22,15 +17,19 @@ public class StateManager : MonoBehaviour
     private bool m_isSpawning;
     public List<string> m_arrowList;
     public bool m_CorrectSequence;
+    public int m_MaxNumberOfRound;
     public int m_nNotes;
     public int m_nRound;
     public TextMeshProUGUI m_nRoundText;
+
+    public int m_LifePoints;
 
     public void SetupStates()
     {
         listOfStates.Add(Constants.STATE_MusicSequence, new MusicSequence(this));
         listOfStates.Add(Constants.STATE_PlayerTurn, new PlayerTurn(this));
         listOfStates.Add(Constants.STATE_MusicGameStart, new MusicGameStart(this));
+        //listOfStates.Add(Constants.STATE_WinningState, new WinningState(this));
     }
 
     void Awake()

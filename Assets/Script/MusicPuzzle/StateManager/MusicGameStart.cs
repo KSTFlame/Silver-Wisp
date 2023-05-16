@@ -17,10 +17,11 @@ public class MusicGameStart : State
         stateManager.m_arrowList = new List<string>();
         stateManager.m_CorrectSequence = true;
         stateManager.m_nRound = 0;
+        stateManager.m_nRoundText.text = "Round " + stateManager.m_nRound + " / " + stateManager.m_MaxNumberOfRound;
         //DialogueLibrary.m_DialogueIndex = 1;
         //StateManager.m_StaticDialogueBox.SetActive(true);
     }
- 
+
     public override void OnUpdate()
     {
         base.OnUpdate();

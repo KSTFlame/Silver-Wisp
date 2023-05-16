@@ -14,11 +14,18 @@ public class MusicSequence : State
         base.OnEnter();
         Debug.Log("Enter MusicSequnce");
 
-        stateManager.m_nRoundText.text = "Round " + stateManager.m_nRound + " / 5";
+        if (stateManager.m_CorrectSequence == false)
+            stateManager.m_LifePoints--;
+        if (stateManager.m_LifePoints <= 0)
+        {
+            Debug.Log("Hai Perso");
+        }
 
-        if(stateManager.m_CorrectSequence)    
+        if (stateManager.m_CorrectSequence)    
             stateManager.StartCoroutine(stateManager.MusicalNoteSpawn());
         else
+        {
             stateManager.StartCoroutine(stateManager.MusicalNoteRepeat());
+        }
     }
 }

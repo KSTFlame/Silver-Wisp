@@ -8,4 +8,5 @@ public class Constants
     public const string STATE_MusicGameStart = "MusicGameStart";
     public const string STATE_MusicSequence = "MusicSequence";
     public const string STATE_PlayerTurn = "PlayerTurn";
+    public const string STATE_WinningState = "STATE_WinningState";
 }

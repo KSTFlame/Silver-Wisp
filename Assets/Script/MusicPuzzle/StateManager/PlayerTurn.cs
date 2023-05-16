@@ -82,7 +82,14 @@ public class PlayerTurn : State
             stateManager.m_CorrectSequence = true;
             stateManager.m_arrowList.Clear();
             stateManager.m_nRound++;
-            stateManager.ChangeState(Constants.STATE_MusicSequence);
+            stateManager.m_nRoundText.text = "Round " + stateManager.m_nRound + " / "+ stateManager.m_MaxNumberOfRound;
+            if (stateManager.m_MaxNumberOfRound == stateManager.m_nRound)
+            {
+                //stateManager.ChangeState(Constants.STATE_WinningState);
+                Debug.Log("GG");
+            }  
+            else
+                stateManager.ChangeState(Constants.STATE_MusicSequence);
         }
     }
 
