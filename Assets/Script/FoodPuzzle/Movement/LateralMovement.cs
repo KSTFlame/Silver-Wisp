@@ -13,8 +13,8 @@ public class LateralMovement : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
-        _inputsController = GetComponent<AxisInputController>();
+        TryGetComponent(out _rb);
+        TryGetComponent(out _inputsController);
     }
 
     private void FixedUpdate()

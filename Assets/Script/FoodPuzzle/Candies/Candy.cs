@@ -6,19 +6,19 @@ using UnityEngine;
 public class Candy : ObjectItem, IPooledObject
 {
     public Pool RelatedPool { get; private set; }
-    public CandiesGenerator CandiesGenerator { get; private set; }
+    public CandiesBasket Basket { get; private set; }
 
     private Rigidbody _rb;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        TryGetComponent(out _rb);
     }
 
-    public void Init(Pool associatedPool, CandiesGenerator candyGenerator)
+    public void Init(Pool associatedPool, CandiesBasket basket)
     {
         AssociatePool(associatedPool);
-        CandiesGenerator = candyGenerator;
+        Basket = basket;
     }
 
     public void AssociatePool(Pool associatedPool)
@@ -35,13 +35,12 @@ public class Candy : ObjectItem, IPooledObject
     private void OnTriggerEnter(Collider other)
     {
         Dispose();
-
-        if(other.TryGetComponent(out IPlayer player))
+        if (other.TryGetComponent(out PlayerBowlManager bowlmanager))
         {
-            CandiesGenerator.CatchCandy();
+            bowlmanager.BowlController.Container.Add(this);
             return;
         }
 
-        CandiesGenerator.MissCandy();
+        Basket.MissCandy();
     }
 }

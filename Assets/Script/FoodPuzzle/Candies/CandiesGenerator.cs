@@ -15,42 +15,14 @@ public class CandiesGenerator : ObjectItemsSpawner
         }
     }
 
-    [SerializeField, Header("Candies")]
-    private uint _candiesToReach = 10;
-    [SerializeField]
-    private uint _missableCandies = 2;
     [SerializeField]
     private VectorRange _range;
 
-    private uint _currentCatchedCandies = 0;
-    private uint _missedCandies = 0;
+    private CandiesBasket _basket;
 
-    public event Action OnCandiesReached;
-    public event Action OnCandiesMissed;
-
-    private void Start()
+    public void Init(CandiesBasket basket)
     {
-        StartSpawnerRoutine();
-    }
-
-    public void CatchCandy()
-    {
-        _currentCatchedCandies++;
-
-        if (_currentCatchedCandies >= _candiesToReach)
-        {
-            OnCandiesReached?.Invoke();
-        }
-    }
-
-    public void MissCandy()
-    {
-        _missedCandies++;
-
-        if (_missedCandies >= _missableCandies)
-        {
-            OnCandiesMissed?.Invoke();
-        }
+        _basket = basket;
     }
 
     protected override GameObject SpawnObject()
@@ -59,7 +31,7 @@ public class CandiesGenerator : ObjectItemsSpawner
 
         if (candyGO.TryGetComponent(out Candy candy))
         {
-            candy.Init(Pool, this);
+            candy.Init(Pool, _basket);
             candy.transform.position = _range.RandomVectorBetween();
         }
 
@@ -67,7 +39,7 @@ public class CandiesGenerator : ObjectItemsSpawner
     }
 
 #if DEBUG
-    [ContextMenu("Stop All Coroutines")]
+    [ContextMenu("Stop Spawn Routine")]
     private void DebugStopCoroutines()
     {
         StopAllCoroutines();

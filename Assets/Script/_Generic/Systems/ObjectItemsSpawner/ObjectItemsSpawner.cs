@@ -10,7 +10,7 @@ public abstract class ObjectItemsSpawner : MonoBehaviour
     [field: SerializeField, Min(0)]
     private float _spawnRate = 1f;
 
-    protected virtual void StartSpawnerRoutine()
+    public virtual void StartSpawner()
     {
         StartCoroutine(SpawObjectsRoutine());
     }
