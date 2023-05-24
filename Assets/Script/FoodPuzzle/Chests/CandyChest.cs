@@ -6,7 +6,7 @@ public class CandyChest : MonoBehaviour
     {
         if(other.TryGetComponent(out PlayerBowlManager playerBowlManager))
         {
-            playerBowlManager.BowlController.CanPullOver = true;
+            playerBowlManager.BowlController.CanPullOver = true; // Just sets the CanPullOver bool, so it can PullOver in the BowlController
         }
     }
 

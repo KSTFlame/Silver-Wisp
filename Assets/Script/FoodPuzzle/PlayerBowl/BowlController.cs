@@ -16,6 +16,11 @@ public class BowlController : MonoBehaviour
         Container = container;
     }
 
+    /// <summary>
+    /// Initializes the BowlController.
+    /// </summary>
+    /// <param name="keycodePulloverBowl">Keycode input needed for PullOver.</param>
+    /// <param name="basket">Candies Basket.</param>
     public void Init(KeyCode keycodePulloverBowl, CandiesBasket basket)
     {
         Container.Init();
@@ -23,6 +28,9 @@ public class BowlController : MonoBehaviour
         _basket = basket;
     }
 
+    /// <summary>
+    /// Adds N candies to the basket.
+    /// </summary>
     public void PullOver()
     {
         _basket.CatchCandy(Container.Count);

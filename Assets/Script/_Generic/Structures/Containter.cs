@@ -17,6 +17,10 @@ public class Containter<T> : MonoBehaviour
     public event Action<T, int, int> OnItemRemoved;
     public event Action<int, int> OnClearedList;
 
+    /// <summary>
+    /// Adds an item to the container.
+    /// </summary>
+    /// <param name="item"></param>
     public void Add(T item)
     {
         if (IsFull) return;
@@ -24,6 +28,10 @@ public class Containter<T> : MonoBehaviour
         OnItemAdded?.Invoke(item, Count, MaxSize);
     }
     
+    /// <summary>
+    /// Removes and item from the container.
+    /// </summary>
+    /// <param name="item"></param>
     public void Remove(T item)
     {
         if (IsEmpty) return;
@@ -31,6 +39,9 @@ public class Containter<T> : MonoBehaviour
         OnItemRemoved?.Invoke(item, Count, MaxSize);
     }
 
+    /// <summary>
+    /// Cleats the items list.
+    /// </summary>
     public void Clear()
     {
         _items.Clear();

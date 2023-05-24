@@ -14,6 +14,10 @@ public class CandiesBasket : MonoBehaviour
     public event Action OnCandiesReached;
     public event Action OnCandiesMissed;
 
+    /// <summary>
+    /// Adds the catched candies count to the candies to reach.
+    /// </summary>
+    /// <param name="catchedCandies">Catched candies.</param>
     public void CatchCandy(int catchedCandies)
     {
         _currentCatchedCandies += catchedCandies;
@@ -25,6 +29,9 @@ public class CandiesBasket : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Misses a candy adding one to the missed candies count.
+    /// </summary>
     public void MissCandy()
     {
         _missedCandies++;

@@ -10,16 +10,26 @@ public abstract class ObjectItemsSpawner : MonoBehaviour
     [field: SerializeField, Min(0)]
     private float _spawnRate = 1f;
 
+    /// <summary>
+    /// Begins the spawn.
+    /// </summary>
     public virtual void StartSpawner()
     {
         StartCoroutine(SpawObjectsRoutine());
     }
 
+    /// <summary>
+    /// Spawns the GameObject.
+    /// </summary>
+    /// <returns>Spawned GameObject.</returns>
     protected virtual GameObject SpawnObject()
     {
         return Pool.Get();
     }
 
+    /// <summary>
+    /// Starts the spawn routine.
+    /// </summary>
     private IEnumerator SpawObjectsRoutine()
     {
         while (true)

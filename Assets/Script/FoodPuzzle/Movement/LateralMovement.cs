@@ -22,6 +22,9 @@ public class LateralMovement : MonoBehaviour
         Move();
     }
 
+    /// <summary>
+    /// Moves the gameObject using its rigidbody velocity.
+    /// </summary>
     private void Move()
     {
         _rb.velocity = new Vector3(_inputsController.Axis * _speed, _rb.velocity.y, _rb.velocity.z);

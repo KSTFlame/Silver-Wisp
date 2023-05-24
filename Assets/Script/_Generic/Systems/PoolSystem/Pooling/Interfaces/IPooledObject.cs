@@ -2,10 +2,14 @@
 {
     Pool RelatedPool { get; }
 
+    /// <summary>
+    /// Associates the pool.
+    /// </summary>
+    /// <param name="associatedPool">Pool to associate.</param>
     void AssociatePool(Pool associatedPool);
 
     /// <summary>
-    /// Dispose the object and return it to the pool.
+    /// Disposes the object and returns it to the pool.
     /// </summary>
     void Dispose();
 }

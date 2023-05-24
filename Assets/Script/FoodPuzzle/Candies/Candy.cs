@@ -15,17 +15,24 @@ public class Candy : ObjectItem, IPooledObject
         TryGetComponent(out _rb);
     }
 
+    /// <summary>
+    /// Initilizes the candy.
+    /// </summary>
+    /// <param name="associatedPool">Candies Pool.</param>
+    /// <param name="basket">Candies Basket.</param>
     public void Init(Pool associatedPool, CandiesBasket basket)
     {
         AssociatePool(associatedPool);
         Basket = basket;
     }
 
+    /// <inheritdoc/>
     public void AssociatePool(Pool associatedPool)
     {
         RelatedPool = associatedPool;
     }
 
+    /// <inheritdoc/>
     public void Dispose()
     {
         _rb.velocity = Vector3.zero;

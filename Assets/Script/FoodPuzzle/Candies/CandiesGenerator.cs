@@ -20,11 +20,19 @@ public class CandiesGenerator : ObjectItemsSpawner
 
     private CandiesBasket _basket;
 
+    /// <summary>
+    /// Initilizes CandiesGenerator.
+    /// </summary>
+    /// <param name="basket">Candies Basket</param>
     public void Init(CandiesBasket basket)
     {
         _basket = basket;
     }
 
+    /// <summary>
+    /// Spawns a candy.
+    /// </summary>
+    /// <returns>Spawned GameObject Candy.</returns>
     protected override GameObject SpawnObject()
     {
         GameObject candyGO = base.SpawnObject();
