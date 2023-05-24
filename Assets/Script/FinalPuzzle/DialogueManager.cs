@@ -12,8 +12,9 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private Text _dialogueText;
 	private Dialogue _dialogue;
 	public event Action OnEndDialogue;
+	public int ActualDialogue;
 
-	bool isTalking;
+	private bool isTalking;
 
 	/// <summary>
 	/// setup Dialogue
@@ -28,6 +29,7 @@ public class DialogueManager : MonoBehaviour {
 	public void StartDialogue ()
 	{
 		DisplayNextSentence();
+		ActualDialogue++;
 	}
 
 	/// <summary>
