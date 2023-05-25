@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 49d2d9f1fc7f04d44bdfd2144ccfb73b
+  - enabled: 1
+    path: Assets/Scenes/FoodPuzzleExample.unity
+    guid: 4c304a9acfef6634c882f8ce9c277c20
+  - enabled: 1
+    path: Assets/Scenes/TouchPuzzleScene.unity
+    guid: 6fcbe57f8cb4bf3419522aba17c83026
   m_configObjects: {}
